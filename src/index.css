@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Coda:wght@400;800&family=Nunito:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 25%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 25%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 25%;
+    --primary: 352 82% 81%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 50 85% 71%;
+    --secondary-foreground: 0 0% 25%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 210 55% 67%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 352 82% 81%;
+    --radius: 0.625rem;
+    
+    /* Brand Colors */
+    --brand-pink: #f7a4af;
+    --brand-yellow: #f4df77;
+    --brand-blue: #7ca9d6;
+    --brand-text: #414042;
+    --brand-light-pink: #f9c0c8;
+    --brand-light-yellow: #f9e79f;
+    --brand-light-blue: #b8d4eb;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Coda', sans-serif;
+    font-weight: 800;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#f7a4af] text-white px-6 py-3 rounded-full font-semibold 
+           transition-all duration-300 hover:bg-[#e895a0] hover:shadow-lg
+           hover:-translate-y-0.5 active:translate-y-0;
+  }
+  
+  .btn-secondary {
+    @apply bg-[#f4df77] text-[#414042] px-6 py-3 rounded-full font-semibold 
+           transition-all duration-300 hover:bg-[#e5d068] hover:shadow-lg
+           hover:-translate-y-0.5 active:translate-y-0;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-[#f7a4af] text-[#f7a4af] px-6 py-3 rounded-full font-semibold 
+           transition-all duration-300 hover:bg-[#f7a4af] hover:text-white;
+  }
+  
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#f7a4af] via-[#f4df77] to-[#7ca9d6] bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-spin-slow {
+    animation: spin 20s linear infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-pink);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e895a0;
+}
+
+/* Selection Color */
+::selection {
+  background: var(--brand-pink);
+  color: white;
+}
